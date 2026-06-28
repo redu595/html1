@@ -1,125 +1,104 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rediets Portfolio</title>
-
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rediet's Portfolio</title>
     <style>
-
-        header{
-            background-color: #e3418d;
-            color: white;
-            text-align: center;
-            padding: 30px;
-        }
-
-        nav{
-            background-color: #226aa5;
-            padding: 10px;
-            text-align: center;
-        }
-
-        nav a{
-            color: white;
-            text-decoration: none;
-            margin: 15px;
-        }
-
-        section{
-            padding: 20px;
-            margin: 20px;
-            background-color: rgb(10, 173, 75);
-            border-radius: 10px;
-        }
-
-        .project{
-            margin-bottom: 15px;
-        }
-
-        footer{
-            background-color: #e54d4d;
-            color: white;
-            text-align: center;
-            padding: 10px;
-        }
+        :root { --bg: #0b0f19; --card: #161f30; --text: #f3f4f6; --muted: #9ca3af; --pink: #e3418d; --blue: #226aa5; --green: #0bda51; --red: #e54d4d; }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; scroll-behavior: smooth; }
+        body { background: var(--bg); color: var(--text); padding-bottom: 80px; }
+        header { min-height: 55vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 40px 20px; background: linear-gradient(135deg, rgba(227,65,141,0.15), rgba(34,106,165,0.15)); position: relative; }
+        header h1 { font-size: 3.5rem; margin-bottom: 10px; background: linear-gradient(45deg, #fff, var(--pink), var(--blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; transition: 0.3s; }
+        header p { font-size: 1.1rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+        .magic-btn { margin-top: 25px; padding: 12px 24px; background: transparent; border: 2px solid var(--pink); color: #fff; border-radius: 30px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .magic-btn:hover { background: var(--pink); box-shadow: 0 0 20px var(--pink); transform: scale(1.05) rotate(-2deg); }
+        nav { background: rgba(22,31,48,0.85); backdrop-filter: blur(12px); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 1000; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        nav a { color: var(--text); text-decoration: none; margin: 0 15px; font-weight: 500; transition: 0.3s; position: relative; }
+        nav a:hover { color: var(--pink); }
+        .container { max-width: 800px; margin: 30px auto; padding: 0 20px; }
+        section { padding: 35px; margin-bottom: 35px; background: var(--card); border-radius: 16px; border-left: 6px solid var(--green); box-shadow: 0 10px 25px rgba(0,0,0,0.4); position: relative; overflow: hidden; }
+        section h2 { font-size: 2rem; margin-bottom: 20px; color: #fff; }
+        .about-box { display: flex; align-items: center; gap: 25px; flex-wrap: wrap; }
+        .about-text { flex: 1; min-width: 250px; }
+        .profile-img { width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--blue); object-fit: cover; box-shadow: 0 0 15px rgba(34,106,165,0.5); transition: 0.5s; }
+        .profile-img:hover { transform: rotate(360deg); border-color: var(--pink); }
+        .skills-grid { display: flex; gap: 12px; flex-wrap: wrap; list-style: none; margin-top: 10px; }
+        .skills-grid li { background: rgba(34,106,165,0.15); border: 1px solid var(--blue); padding: 8px 22px; border-radius: 50px; font-size: 0.95rem; font-weight: bold; transition: 0.3s; }
+        .skills-grid li:hover { background: var(--blue); transform: translateY(-3px); }
+        .project { margin-top: 15px; padding: 20px; background: rgba(255,255,255,0.02); border-radius: 10px; border-left: 4px solid var(--pink); transition: 0.3s; }
+        .project:hover { background: rgba(255,255,255,0.05); transform: translateX(5px); }
+        form { margin-top: 20px; display: flex; flex-direction: column; gap: 15px; }
+        input, textarea { width: 100%; padding: 14px; background: rgba(11,15,25,0.7); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: #fff; transition: 0.3s; }
+        input:focus, textarea:focus { border-color: var(--pink); outline: none; background: rgba(11,15,25,0.9); }
+        button[type="submit"] { background: linear-gradient(90deg, var(--blue), #1d598c); color: #fff; padding: 14px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button[type="submit"]:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(34,106,165,0.4); }
+        footer { background: var(--red); color: #fff; text-align: center; padding: 20px; width: 100%; font-weight: bold; }
+        .
+[6/28/2026 11:24 AM] ረድኤት: sparkle { animation: glitch 0.3s infinite; color: var(--pink) !important; text-shadow: 0 0 10px var(--pink), 0 0 20px var(--blue); }
+        @keyframes glitch { 0% { transform: skew(2deg); } 50% { transform: skew(-2deg); } 100% { transform: skew(0deg); } }
     </style>
 </head>
-
 <body>
 
     <header>
-        <h1>Rediet Zekarias</h1>
+        <h1 id="heroTitle">Rediet Zekarias</h1>
         <p>Web Developer | Student | Designer</p>
+        <button class="magic-btn" id="magicBtn">See The Magic ✨</button>
     </header>
 
     <nav>
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
+        <a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
     </nav>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>
-            Hi,  I am student in college learning to develop web pages ,am smart and  un
-            gitserious thats how mycode works like magics .
-            <img src="redu.png/redu.png"/>
-            
-        </p>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>Java</li>
-        </ul>
-    </section>
-
-    <section id="projects">
-        <h2>Projects</h2>
-
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>A simple website project.</p>
-        </div>
-
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>A Java application project.</p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <h2>Contact</h2>
-        <p>Email: <a href="mailto:Rdiet.Zekarias@bitscollege.edu.et">RedietZekarias@bitscollege.edu.et</a></p>
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-box">
+                <p class="about-text">Hi, I am student in college learning to develop web pages, am smart and un gitserious thats how mycode works like magics.</p>
+                <img class="profile-img" src="redu.png/redu.png" alt="Rediet's Profile Graphic">
+            </div>
         </section>
-        <form action="#" method="POST">
-           <div>
-                    <label for="name">Your Name:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <br>
-                <div>
-                    <label for="email">Your Email Address:</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-                <br>
-                <div>
-                    <label for="message">Message Details:</label>
-                    <textarea id="message" name="message" rows="5" required></textarea>
-                </div>
-                <br>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <ul class="skills-grid"><li>HTML</li><li>CSS</li><li>Java</li></ul>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project"><h3>Project 1</h3><p>A simple website project.</p></div>
+            <div class="project"><h3>Project 2</h3><p>A Java application project.</p></div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <p style="margin-bottom: 15px;">Email: <a style="color: var(--pink); font-weight: bold; text-decoration: none;" href="mailto:Rdiet.Zekarias@bitscollege.edu.et">RedietZekarias@bitscollege.edu.et</a></p>
+            <form id="portfolioForm" action="#" method="POST">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email Address" required>
+                <textarea id="message" placeholder="Message Details" rows="4" required></textarea>
                 <button type="submit">Send Message</button> 
-        </form>
-    
+            </form>
+        </section>
+    </div>
 
-    <footer>
-        <p>&copy; 2026 Rediet. All rights reserved.</p>
-    </footer>
+    <footer><p>&copy; 2026 Rediet. All rights reserved.</p></footer>
 
+    <script>
+        const magicBtn = document.getElementById('magicBtn'), heroTitle = document.getElementById('heroTitle');
+        magicBtn.addEventListener('click', () => {
+            heroTitle.classList.toggle('sparkle');
+            magicBtn.textContent = heroTitle.classList.contains('sparkle') ? "✨ Magic Triggered!" : "See The Magic ✨";
+        });
+
+        const form = document.getElementById('portfolioForm');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert(`Yo ${document.getElementById('name').value}! Your code worked like magic, details sent successfully.`);
+            form.reset();
+        });
+    </script>
 </body>
 </html>
+s
